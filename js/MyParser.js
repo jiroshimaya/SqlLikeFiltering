@@ -1,4 +1,4 @@
-import { MyLexer } from "./MyLexer.js";
+import { Token } from "./Token.js";
 
 /*
  *  expression = factor, { ("and"|"or"), factor} ;
@@ -6,7 +6,7 @@ import { MyLexer } from "./MyLexer.js";
  *  term = string, ("="|"!="), string ;
  */
 
-function MyLang(){
+function MyParser(){
 	
 	const _this = {}
 	
@@ -19,7 +19,7 @@ function MyLang(){
 
 		_this.obj = obj;
 		let tokens = _this.tokenize(str);
-		let lexer = new MyLexer(tokens);
+		let lexer = new Token(tokens);
 		let result = _this.expression(lexer);
 		//alert(lexer.read());
 		if(lexer.exist()){
@@ -85,4 +85,4 @@ function MyLang(){
 	}
 }
 
-export { MyLang }
+export { MyParser }

@@ -1,4 +1,4 @@
-function MyLexer(tokens){
+function Token(tokens){
 	const _this = {}
 	_this.idx = 0;
 	_this.tokens = tokens;
@@ -28,4 +28,4 @@ function MyLexer(tokens){
 	}
 }
 
-export { MyLexer };
+export { Token };
