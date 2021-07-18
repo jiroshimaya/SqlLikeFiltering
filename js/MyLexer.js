@@ -1,27 +1,31 @@
-class MyLexer {
-	constructor(tokens){
-		this.idx = 0;
-		this.tokens = tokens;
-	}
-		
-	exist(){
-		if(this.idx<0){
+function MyLexer(tokens){
+	const _this = {}
+	_this.idx = 0;
+	_this.tokens = tokens;
+	
+	_this.exist = function(){
+		if(_this.idx<0){
 			return false;
 		}
-		if(this.tokens.length <= this.idx){
+		if(_this.tokens.length <= _this.idx){
 			return false;
 		}
 		return true;
 	}
 	
-	read(){
-		return this.tokens[this.idx]
+	_this.read = function(){
+		return _this.tokens[_this.idx]
 	}
 	
-	next(){
-		return this.tokens[this.idx++]
+	_this.next = function(){
+		return _this.tokens[_this.idx++]
 	}
 	
+	return {
+		exist: _this.exist,
+		read: _this.read,
+		next: _this.next
+	}
 }
 
 export { MyLexer };
